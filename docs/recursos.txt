@@ -1,0 +1,68 @@
+Nombre del Proyecto: Sistema de Gestión de Tareas Colaborativas
+
+Descripción del Proyecto: Desarrollar una aplicación web en PHP para gestionar tareas colaborativas entre un equipo de 16 personas. El sistema se centrará en la programación y las entidades de la base de datos para garantizar la colaboración eficiente.
+
+Patron de Desarrollo => MVC
+Fecha y Hora de Entrega: Sábado, 24 de febrero del 2024
+
+Entidades de la Base de Datos:  (Modelo, Controlador y la Vista)
+
+1) Usuarios => Matias Mosquera
+Atributos: UserID (PK), Nombre, Correo Electrónico, Contraseña, RolID (FK)
+
+2) Roles: => Carlos Pintag
+Atributos: RolID (PK), Nombre del Rol
+
+3) Tareas: => Edison Gonzalez
+Atributos: TareaID (PK), Descripción, Fecha de Creación, Fecha de Vencimiento, Estado, AsignadoA (FK), Creador (FK)
+
+4) Comentarios: => Paulo Yepez
+Atributos: ComentarioID (PK), Contenido, Fecha de Creación, TareaID (FK), UsuarioID (FK)
+
+5) Proyectos: => Francisco Quinteros
+Atributos: ProyectoID (PK), Nombre del Proyecto, Descripción, Fecha de Inicio, Fecha de Finalización
+
+6) Asignaciones: => Cristian Masaquiza
+Atributos: AsignacionID (PK), TareaID (FK), UsuarioID (FK)
+
+7) Notificaciones: => Stalin Quilumbango
+Atributos: NotificacionID (PK), Contenido, Fecha de Creación, UsuarioID (FK)
+
+8) Archivos Adjuntos: => Walter Garcia
+Atributos: ArchivoID (PK), Nombre del Archivo, Ruta del Archivo, TareaID (FK)
+
+9) Historial de Tareas: => Joel Acosta
+Atributos: HistorialID (PK), TareaID (FK), Estado Anterior, Estado Nuevo, Fecha de Cambio
+ 
+10) Seguidores: => Nando Pozo
+Atributos: SeguidorID (PK), UsuarioID (FK), ProyectoID (FK)
+
+11) Proyecto-Tarea Relación:
+Atributos: ProyectoID (FK), TareaID (FK)
+
+12) Rol-Tarea Relación: => Joel Brito
+Atributos: RolID (FK), TareaID (FK)
+
+13) Rol-Usuario Relación: => Luis Cañar
+Atributos: RolID (FK), UsuarioID (FK)
+
+14) Comentario-Tarea Relación:
+Atributos: ComentarioID (FK), TareaID (FK)
+
+15) Archivo-Tarea Relación:
+Atributos: ArchivoID (FK), TareaID (FK)
+
+16) Proyecto-Usuario Relación:
+Atributos: ProyectoID (FK), UsuarioID (FK)
+
+
+
+
+
+Relaciones:
+Un Usuario puede tener varios Roles (Relación 1:N)
+Varios Usuarios pueden estar asignados a una Tarea y una Tarea puede tener varios Usuarios asignados (Relación M:N)
+Varios Comentarios pueden estar asociados a una Tarea y una Tarea puede tener varios Comentarios (Relación M:N)
+Varios Archivos Adjuntos pueden estar asociados a una Tarea y una Tarea puede tener varios Archivos Adjuntos (Relación M:N)
+Un Proyecto puede tener varias Tareas y una Tarea puede pertenecer a varios Proyectos (Relación M:N)
+Varios Usuarios pueden seguir un Proyecto y un Proyecto puede tener varios Seguidores (Relación M:N)
